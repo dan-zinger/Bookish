@@ -10,9 +10,9 @@ namespace Bookish.Services
 {
     public interface IBookService
     {
-        public BookModel GetBook(int bookId);
-        public List<BookModel> GetAllBooks();
-        public  void CreateBook(BookModel book);
+        public Book GetBook(int bookId);
+        public List<Book> GetAllBooks();
+        public  void CreateBook(Book book);
         public void AddCopyOfBook(int parentBookId);
         public void DeleteBook(int bookId);
     }
@@ -24,21 +24,21 @@ namespace Bookish.Services
             _libraryContext = libraryContext;
         }
 
-        public BookModel GetBook(int bookId)
+        public Book GetBook(int bookId)
         {
             //List<BookModel> books = _libraryContext.Books.ToList();
             //BookModel book = books.Where(b => b.Id == bookId).Single();
-            BookModel book =  _libraryContext.Book.Where(b => b.Id == bookId).Single();
+            Book book =  _libraryContext.Book.Where(b => b.BookId == bookId).Single();
             return book;
         }
 
-        public List<BookModel> GetAllBooks()
+        public List<Book> GetAllBooks()
         {
-            List<BookModel> books = _libraryContext.Book.Include(b => b.Author).ToList();
+            List<Book> books = _libraryContext.Book.Include(b => b.Author).ToList();
             return books;
         }
         // pass in bookmodel
-        public void CreateBook(BookModel book)
+        public void CreateBook(Book book)
         {
             _libraryContext.Book.Add(book);
             _libraryContext.SaveChanges();       
@@ -46,7 +46,7 @@ namespace Bookish.Services
 
         public void AddCopyOfBook(int bookId)
         {
-            BookCopyModel copy = new BookCopyModel
+            BookCopy copy = new BookCopy
             {
                 BookId = bookId
             };
@@ -56,7 +56,7 @@ namespace Bookish.Services
 
         public void DeleteBook(int bookId)
         {
-            BookModel book =  _libraryContext.Book.Where(b => b.Id == bookId).Single();
+            Book book =  _libraryContext.Book.Where(b => b.BookId == bookId).Single();
             _libraryContext.Book.Remove(book);
             _libraryContext.SaveChanges();
         }

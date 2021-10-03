@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Bookish.Models
 {
-    public class LoanModel
+    public class Loan
     {
-        public int Id { get; set;}
+        public int LoanId { get; set;}
         public DateTime DateBorrowed { get; set;}
         public string BookCopyId {get; set;}
         public int MemberId {get; set;} 

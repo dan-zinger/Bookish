@@ -1,4 +1,4 @@
-@model BookModel
+@model Book
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,28 +11,28 @@
         <th>Title</th>
         <td>@Model.Title</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.BookId}) |
         </td>
     </tr>
     <tr>
         <th>Author</th>
         <td>@Model.Author</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.BookId}) |
         </td>
     </tr>
     <tr>
         <th>Book ID</th>
-        <td>@Model.Id</td>
+        <td>@Model.BookId</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.BookId}) |
         </td>
     </tr>
     <tr>
         <th>Category</th>
         <td>@Model.Category</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) 
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.BookId}) 
         </td>
     </tr>
     <tr>
@@ -40,8 +40,8 @@
         <td></td>
         <td>
             <form method = "post" asp-controller="book" asp-action="AddCopyOfBook">
-                <input type="hidden" asp-for="Id" value= "@Model.Id" id="@Model.Id">
-                <button type="submit" asp-for="Id" value= @Model.Id> Add Copy</button>
+                <input type="hidden" asp-for="BookId" value= "@Model.BookId" id="@Model.BookId">
+                <button type="submit" asp-for="BookId" value= @Model.BookId> Add Copy</button>
             </form>
             
         </td>

@@ -1,4 +1,4 @@
-﻿@model List<BookModel>
+﻿@model List<Book>
 @{
     ViewData["Title!!!"] = "Books";      //WHAT DOES THIS LINE ACTUALLY DO?!?!
 }
@@ -14,7 +14,7 @@
             <th></th>
             <th></th>
         </tr>
-        @foreach (BookModel book in Model)
+        @foreach (Book book in Model)
         {
             <tr>
                 <td> @book.Title </td>
@@ -25,14 +25,14 @@
                     @Html.ActionLink(
                         linkText: "Details",
                         actionName: "BookView",
-                        routeValues: new {id = book.Id}
+                        routeValues: new {id = book.BookId}
                     )
                 </td>
                 <td>
                     @Html.ActionLink(
                         linkText: "Delete",
                         actionName: "DeleteBookSuccess",
-                        routeValues: new {id = book.Id}
+                        routeValues: new {id = book.BookId}
                     )
                 </td>
             </tr>

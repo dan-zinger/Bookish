@@ -1,4 +1,4 @@
-@model BookModel
+@model Book
 
 @{
     ViewData["Title"] = "Books";
@@ -12,7 +12,7 @@
         @Html.TextBoxFor(b => b.Title)
 
         <label asp-for="Author">Author: </label>
-        @Html.DropDownListFor(b => b.AuthorModelId, new SelectList(ViewBag.authors, "AuthorModelId", "Name"))
+        @Html.DropDownListFor(b => b.AuthorId, new SelectList(ViewBag.authors, "AuthorId", "Name"))
 
         <label asp-for="Category">Category: </label>
         @Html.TextBoxFor(b => b.Category)
@@ -20,7 +20,7 @@
     }
 </div>
 
-@foreach (AuthorModel Author in ViewBag.authors)
+@foreach (Author Author in ViewBag.authors)
 {
     <p>@Author.Name</p>
 }

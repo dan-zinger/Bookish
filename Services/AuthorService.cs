@@ -11,8 +11,8 @@ namespace Bookish.Services
     public interface IAuthorService
     {
         // signitures of author methods
-        public void CreateAuthor(AuthorModel author);
-        public List<AuthorModel> GetAuthorList();
+        public void CreateAuthor(Author author);
+        public List<Author> GetAuthorList();
     }
     public class AuthorService : IAuthorService
     {
@@ -22,15 +22,15 @@ namespace Bookish.Services
             _libraryContext = libraryContext;
         }
 
-        public void CreateAuthor(AuthorModel author)
+        public void CreateAuthor(Author author)
         {
             _libraryContext.Author.Add(author);
             _libraryContext.SaveChanges();
         }
 
-        public List<AuthorModel> GetAuthorList()
+        public List<Author> GetAuthorList()
         {
-            List<AuthorModel> authors = _libraryContext.Author.ToList();
+            List<Author> authors = _libraryContext.Author.ToList();
             return authors;
         }
     }

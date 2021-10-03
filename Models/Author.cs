@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bookish.Models
 {
-    public class AuthorModel
+    public class Author
     {
         
-        public int AuthorModelId { get; set;}
+        public int AuthorId { get; set;}
         
         [Required]
         public string Name { get; set;}
 
-        public List<BookModel> Books { get; set; }
+        public List<Book> Books { get; set; }
     }
 }

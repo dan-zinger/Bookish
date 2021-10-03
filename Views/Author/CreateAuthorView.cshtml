@@ -1,4 +1,4 @@
-@model AuthorModel
+@model Author
 
 @{
     ViewData["Title"] = "Create New Author";    
@@ -15,7 +15,7 @@
     }
 </div>
 
-@foreach (AuthorModel Author in ViewBag.authors)
+@foreach (Author Author in ViewBag.authors)
 {
     <p>@Author.Name</p>
 }

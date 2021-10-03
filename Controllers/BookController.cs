@@ -39,9 +39,9 @@ namespace Bookish.Controllers
         }
 
         [HttpPost("book")]     //Needs to be post, via ajax
-        public IActionResult AddCopyOfBook(BookModel book)   //change to a redirect
+        public IActionResult AddCopyOfBook(Book book)   //change to a redirect
         {
-            _bookService.AddCopyOfBook(book.Id);
+            _bookService.AddCopyOfBook(book.BookId);
             return RedirectToAction("BookView", "book", new {id=15});
         }
 
@@ -53,7 +53,7 @@ namespace Bookish.Controllers
         }
 
         [HttpPost("create")] //fine
-        public IActionResult CreateBook(BookModel book)  
+        public IActionResult CreateBook(Book book)  
         {
             
             _bookService.CreateBook(book);

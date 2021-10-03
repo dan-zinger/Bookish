@@ -31,7 +31,7 @@ namespace Bookish.Controllers
         }
         // 2) createauthor, httppost, route
         [HttpPost("create")]
-        public IActionResult CreateAuthor(AuthorModel author)
+        public IActionResult CreateAuthor(Author author)
         {
             _authorservice.CreateAuthor(author);
             return RedirectToAction("CreateAuthorView");

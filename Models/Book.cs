@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bookish.Models
 {
-    public class BookModel
+    public class Book
     {
-        public int Id { get; set;}
+        public int BookId { get; set;}
         [Required]
         public string Title { get; set;}
         [Required]
-        public AuthorModel Author {get; set;}
-        public int AuthorModelId { get; set;}
+        public Author Author {get; set;}
+        public int AuthorId { get; set;}
         [Required]
         public string Category { get; set;}
-        public List<BookCopyModel> Bookcopies { get; set; }
+        public List<Book> Bookcopies { get; set; }
     }
 }
