@@ -1,0 +1,41 @@
+﻿@model List<BookModel>
+@{
+    ViewData["Title!!!"] = "Books";      //WHAT DOES THIS LINE ACTUALLY DO?!?!
+}
+
+<div class="text-center">
+    <h1 class="display-4">Books Books Books!</h1>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Copies</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (BookModel book in Model)
+        {
+            <tr>
+                <td> @book.Title </td>
+                <td>by @book.Author.Name</td>
+                <td>@book.Category</td>
+                <td>3</td>
+                <td>
+                    @Html.ActionLink(
+                        linkText: "Details",
+                        actionName: "BookView",
+                        routeValues: new {id = book.Id}
+                    )
+                </td>
+                <td>
+                    @Html.ActionLink(
+                        linkText: "Delete",
+                        actionName: "DeleteBookSuccess",
+                        routeValues: new {id = book.Id}
+                    )
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,12 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Bookish.Modles
+namespace Bookish.Models
 {
     public class AuthorModel
     {
-        public int AuthorId { get; set;}
-        public string FirstName { get; set;}
-        public string LastName {get; set;}
+        
+        public int AuthorModelId { get; set;}
+        
+        [Required]
+        public string Name { get; set;}
+
+        public List<BookModel> Books { get; set; }
     }
 }

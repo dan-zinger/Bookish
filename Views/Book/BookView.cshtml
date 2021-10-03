@@ -1,0 +1,50 @@
+@model BookModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bookish</h1>
+</div>
+<table class = "table">
+    <tr>
+        <th>Title</th>
+        <td>@Model.Title</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>@Model.Author</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Book ID</th>
+        <td>@Model.Id</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Category</th>
+        <td>@Model.Category</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) 
+        </td>
+    </tr>
+    <tr>
+        <th>Add a copy</th>
+        <td></td>
+        <td>
+            <form method = "post" asp-controller="book" asp-action="AddCopyOfBook">
+                <input type="hidden" asp-for="Id" value= "@Model.Id" id="@Model.Id">
+                <button type="submit" asp-for="Id" value= @Model.Id> Add Copy</button>
+            </form>
+            
+        </td>
+    </tr>
+</table>
+

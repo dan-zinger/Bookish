@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Bookish.Models
 {
-    public class IndividualBookMod
+    public class BookCopyModel
     {
-        public int IndividualBookId { get; set; }
-        public int FirsBookId { get; set; }
+        public int Id { get; set; }
+        public int BookId { get; set; }
         public Status Status { get; set; }
 
         

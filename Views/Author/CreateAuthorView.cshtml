@@ -1,0 +1,21 @@
+@model AuthorModel
+
+@{
+    ViewData["Title"] = "Create New Author";    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add an Author!</h1>
+    @using (Html.BeginForm("CreateAuthor","Author",FormMethod.Post))
+    {
+         <label asp-for="Name">Name:</label>
+         @Html.TextBoxFor(a => a.Name)
+    
+    <input type="submit" value="Submit"/>
+    }
+</div>
+
+@foreach (AuthorModel Author in ViewBag.authors)
+{
+    <p>@Author.Name</p>
+}

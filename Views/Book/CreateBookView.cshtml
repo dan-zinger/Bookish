@@ -1,0 +1,39 @@
+@model BookModel
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<div class = "text-center">
+    <h1>Create a new book</h1>
+    @using(Html.BeginForm("CreateBook", "book", FormMethod.Post))
+    {
+        <label asp-for="Title">Title: </label>
+        @Html.TextBoxFor(b => b.Title)
+
+        <label asp-for="Author">Author: </label>
+        @Html.DropDownListFor(b => b.AuthorModelId, new SelectList(ViewBag.authors, "AuthorModelId", "Name"))
+
+        <label asp-for="Category">Category: </label>
+        @Html.TextBoxFor(b => b.Category)
+        <input type="submit" value="Submit"/>
+    }
+</div>
+
+@foreach (AuthorModel Author in ViewBag.authors)
+{
+    <p>@Author.Name</p>
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Create a book!</h1>
+    <form method = "post" asp-controller="book" asp-action="CreateBook"> 
+        <label asp-for="Title"></label><br>
+        <input asp-for="Title" name="title"><br> 
+        <label asp-for="Author"></label><br>
+        <input asp-for="Author" name="author"><br>
+        <label asp-for="Category"></label><br>
+        <input asp-for="Category" name="category"><br>
+        <input type="submit" value = "Submit">
+    </form> 
+</div> *@
